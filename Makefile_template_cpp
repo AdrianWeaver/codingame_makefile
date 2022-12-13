@@ -30,7 +30,7 @@ $(NAME):	$(addprefix $(INC_PATH), $(INC_FILES)) $(addprefix $(SRCS_PATH), $(SRCS
 			@echo "Created merged file"
 
 $(BINARY): $(OBJS)
-			$(CXX) $(CXXFLAGS) $< -o compiled $(INC)
+			$(CXX) $(CXXFLAGS) $^ -o $(BINARY) $(INC)
 
 
 $(OBJS_PATH):
@@ -44,9 +44,11 @@ $(OBJS_PATH)%.o:	$(SRCS_PATH)%.cpp
 clean:
 		rm -rf $(OBJS_DIR)
 
-fclean:
+fclean:		clean
 		rm -rf $(NAME)
 
 re:	fclean
 	make all
 
+
+.PHONY: all clean fclean re test vtest
