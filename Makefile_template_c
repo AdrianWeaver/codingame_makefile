@@ -42,7 +42,7 @@ $(OBJS_PATH)%.o:	$(SRCS_PATH)%.c
 				
 
 clean:
-		rm -rf $(OBJS_DIR)
+		rm -rf $(OBJS_PATH)
 
 fclean:		clean
 		rm -rf $(NAME)
