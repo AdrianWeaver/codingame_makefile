@@ -30,7 +30,7 @@ $(NAME):	$(addprefix $(INC_PATH), $(INC_FILES)) $(addprefix $(SRCS_PATH), $(SRCS
 			@echo "Created merged file"
 
 $(BINARY): $(OBJS)
-			$(CC) $(CFLAGS) $< -o compiled $(INC)
+			$(CC) $(CFLAGS) $^ -o $(BINARY) $(INC)
 
 
 $(OBJS_PATH):
@@ -44,7 +44,7 @@ $(OBJS_PATH)%.o:	$(SRCS_PATH)%.c
 clean:
 		rm -rf $(OBJS_DIR)
 
-fclean:
+fclean:		clean
 		rm -rf $(NAME)
 
 re:	fclean
