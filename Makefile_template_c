@@ -1,7 +1,7 @@
 NAME		=	../codingame_sync_file
 BINARY		=	compiled
 
-CC			=	cc
+CC			=	gcc
 
 CPPFLAGS	=	-MMD
 CFLAGS	=	-Wall -Wextra #-Werror
