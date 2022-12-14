@@ -23,6 +23,8 @@ You then only have to code and use ``make`` to compile your code and create a fi
 This file is by default named "codingame_sync_file"
 Obviously, please make sure to update the makefile sources and include_files variables.
 
+IMPORTANT:
+Your files must end with a newline for now (especially on .h/.hpp files). A future patch should remove this need.
 
 Enjoy!
 
