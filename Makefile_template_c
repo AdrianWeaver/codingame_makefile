@@ -50,5 +50,13 @@ fclean:		clean
 re:	fclean
 	make all
 
+test: $(NAME)
+		./$(BINARY)
+
+vtest: $(NAME)
+		valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(BINARY)
+
 -include $(DEPS)
+
+.PHONY: clean fclean re test vtest
 
