@@ -52,3 +52,5 @@ re:	fclean
 
 
 .PHONY: all clean fclean re test vtest
+
+-include $(DEPS)
