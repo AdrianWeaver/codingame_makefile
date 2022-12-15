@@ -1,0 +1,34 @@
+NAME		=	../codingame_sync_file
+BINARY		=	compiled
+
+GO			=	go build
+
+#ADD YOUR SOURCES BELOW WITHOUT THE SOURCE PREFIX MAIN.C GIVEN AS EXAMPLE
+SRCS		=	main.cpp
+
+SRCS_PATH	=	./sources/
+
+all: $(NAME)
+
+$(NAME):
+            @cat $(addprefix $(S_PATH), $(SRCS)) | grep '\s*import\s*' | sort | uniq > $(NAME)
+            @cat $(addprefix $(S_PATH), $(SRCS)) | grep -v '\s*package\s*' | grep -v '\s*import\s*' >> $(NAME)
+            @sed -i '1ipackage main' $(NAME)
+            @echo "Created merged file"
+
+
+$(BINARY):
+			$(GO) $^ -o $(BINARY)
+
+
+clean:
+		rm -rf $(BINARY)
+
+fclean:		clean
+		rm -rf $(NAME)
+
+re:	fclean
+	make all
+
+
+.PHONY: all clean fclean re
